@@ -11,13 +11,15 @@ const getShuffle = (tiles: (TileProps | null)[]): (TileProps | null)[] => {
 };
 
 const shuffleTiles = (tiles: (TileProps | null)[]): (TileProps | null)[] => {
-	let m = tiles.length, t, i;
+	let currentIndex = tiles.length;
 
-	while (m) {
-		i = Math.floor(Math.random() * m--);
-		t = tiles[m];
-		tiles[m] = tiles[i];
-		tiles[i] = t;
+	while (currentIndex !== 0) {
+		let randomIndex = Math.floor(Math.random() * currentIndex);
+		currentIndex--;
+
+		let temporaryValue = tiles[currentIndex];
+		tiles[currentIndex] = tiles[randomIndex];
+		tiles[randomIndex] = temporaryValue;
 	}
 
 	return tiles;
@@ -27,11 +29,7 @@ const isSolvable = (tiles: (TileProps | null)[]): boolean => {
 	let inversions = 0;
 
 	for (let i = 0; i < tiles.length; i++) {
-		if (tiles[i] === null) continue;
-
 		for (let j = i + 1; j < tiles.length; j++) {
-			if (tiles[j] === null) continue;
-
 			if (tiles[i]?.number !== null && tiles[i]?.number !== undefined &&
 				tiles[i]?.number! > tiles[j]?.number!) {
 				inversions++;
