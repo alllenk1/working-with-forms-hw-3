@@ -28,10 +28,7 @@ const App = () => {
         <div className={cnApp()}>
             <Board tiles={tiles} onMove={handleUpdateTiles}/>
 
-            <button
-                className={cnApp('Button')}
-                onClick={handleShuffle}
-            >
+            <button className={cnApp('Button')} onClick={handleShuffle}>
                 Перемешать
             </button>
         </div>
