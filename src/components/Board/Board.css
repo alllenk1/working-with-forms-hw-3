@@ -1,0 +1,24 @@
+.Board {
+    position: relative;
+
+    display: flex;
+    flex-wrap: wrap;
+
+    width: 500px;
+    height: 500px;
+
+    font-family: Helvetica, sans-serif;
+
+    border: 1px solid lightgray;
+}
+
+.Board-Button {
+    margin-top: 20px;
+    padding: 15px 20px;
+
+    font-size: 18px;
+
+    border: 1px solid #5D7179;
+    border-radius: 15px;
+    background: #F8F9FA;
+}
